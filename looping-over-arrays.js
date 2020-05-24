@@ -1,10 +1,17 @@
-let amounts = [61.0, 52.25, 112.99, 5.0];
+function range(start, end, step) {
+  let results = [];
 
-console.log(amounts.length);
+  if (start === undefined || end === undefined || step === undefined)
+    return results;
+  if (start > end) return results;
+  if (step < 0) return results;
 
-let total = 0;
-for (let i = 0; i < amounts.length; i++) {
-  total += amounts[i];
+  for (var i = 0; i < (end - start) / step + 1; i++) {
+    results.push(start + step * i);
+  }
+  return results;
 }
 
-console.log("Order total is: ", total);
+console.log(range(0, 10, 2));
+console.log(range(10, 30, 5));
+console.log(range(-5, 2, 3));
